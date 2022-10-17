@@ -1,1 +1,1 @@
-# Learning C\nReading and outputting file using a buffer.
+# C programming\nFile writing and read with c programming.

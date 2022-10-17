@@ -4,8 +4,7 @@
  * main - program entry point
  * Return: Always 0 (success)
  */
-#define MAX_BUFF_SIZE = 1032;
-
+void fileRead(FILE *ifp, char *file);
 void fileWrite(FILE *ofp, char *name);
 
 int main(void)
@@ -23,7 +22,7 @@ int main(void)
         if (c == 'y' || c == 'Y')
         {
             fp = fopen(file, "a+");
-            fputs("CATEGORY_ID\t\tPOSITION\t\tHOURLY_RATE\t\tHOURLY_RATE_OVERTIME", fp);
+            fputs("CATEGORY_ID\tPOSITION\t\t\tHOURLY_RATE\tHOURLY_RATE_OVERTIME", fp);
             fputs("\n----------------------------------------------------------------------------------------------\n", fp);
             fclose(fp);
             fileWrite(fp, file);
@@ -37,22 +36,30 @@ int main(void)
     return (0);
 }
 
+void fileRead(FILE *ifp, char *file)
+{
+    char m;
+
+    if ((ifp = fopen(file, "r")) == NULL)
+    {
+        printf("Error: Something went wrong! Check your file.");
+    }
+
+    m = fgetc(ifp);
+    while (m != EOF)
+    {
+        printf("%c", m);
+        m = fgetc(ifp);
+    }
+    fclose(ifp);
+}
+
 void fileWrite(FILE *ofp, char *name)
 {
     char l;
-    if ((ofp = fopen(name, "r")) == NULL)
-    {
-        ofp = fopen(name, "a+");
-    }
 
-    l = fgetc(ofp);
-    while (l != EOF)
-    {
-        printf("%c", l);
-        l = fgetc(ofp);
-    }
-
-    fputs("sdfdjksdf", ofp);
+    fileRead(ofp, name);
+    fopen(name, "a+");
 
     while ((l = fgetc(stdin)))
     {
@@ -60,5 +67,6 @@ void fileWrite(FILE *ofp, char *name)
             break;
         fputc(l, ofp);
     }
+
     fclose(ofp);
 }
