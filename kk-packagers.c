@@ -4,6 +4,13 @@
  * main - program entry point
  * Return: Always 0 (success)
  */
+struct EMPLOYEE_PAY
+{
+    char name[50];
+    char position[20];
+    int working_hours;
+};
+
 void fileRead(FILE *ifp, char *file);
 void fileWrite(FILE *ofp, char *name);
 
@@ -11,6 +18,7 @@ int main(void)
 {
     FILE *fp;
     char file[] = "weekly_payload.txt";
+    /*char week_id[10];*/
     char c;
 
     if ((fp = fopen(file, "r")) == NULL)
@@ -33,6 +41,23 @@ int main(void)
         }
     }
 
+    fileRead(fp, file);
+    printf("\n\nDo you wish to add new record(s)? -- y/n: ");
+    scanf("%c", &c);
+
+    if (c == 'y' || c == 'Y')
+    {
+        fp = fopen(file, "a+");
+        fileWrite(fp, file);
+    }
+
+    /*
+    printf("\nEnter week identifier: ");
+    scanf("%s", week_id);
+
+    printf("\nEmployee Pay details for week %s", week_id);
+    */
+
     return (0);
 }
 
@@ -43,6 +68,7 @@ void fileRead(FILE *ifp, char *file)
     if ((ifp = fopen(file, "r")) == NULL)
     {
         printf("Error: Something went wrong! Check your file.");
+        return;
     }
 
     m = fgetc(ifp);
@@ -59,7 +85,8 @@ void fileWrite(FILE *ofp, char *name)
     char l;
 
     fileRead(ofp, name);
-    fopen(name, "a+");
+    printf("\n");
+    fopen(name, "a");
 
     while ((l = fgetc(stdin)))
     {

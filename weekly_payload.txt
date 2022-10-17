@@ -1,4 +1,6 @@
 CATEGORY_ID	POSITION			HOURLY_RATE	HOURLY_RATE_OVERTIME
 ----------------------------------------------------------------------------------------------
-
-SSC001		Production Manager		4.5		3.2
+SSC001		Production Manager		2.3		4.5
+SSC002		Quality Control			4.3		7.6
+SSC003		IT infrastructure		4.3		8.2
+SSC004		Financial adviser		5.4		8.9
