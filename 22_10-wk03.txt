@@ -1,0 +1,9 @@
+Employee Payment details for week {{22_10-wk03.txt}}
+------------------------------------------------
+Tugume Simon Peter		Production Manager		45	419642.50
+Musiitwa Titus		    IT infrastructure		48	870804.00
+Malang Sarr		        Quality Control		    39	0.00
+Talemwa Samuel		    Senior developer		52	0.00
+Kasemiro Paul		    Financial adviser		55	1280917.50
+Membera Joy		        Senior developer		40	0.00
+Bolla Emmily		    Quality Control		    40	630380.00
